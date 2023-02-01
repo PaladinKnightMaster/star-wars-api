@@ -7,7 +7,7 @@ export const StarWarsLogo = ({ height, fill }) => {
       height={height}
       viewBox="0 0 192.756 192.756"
     >
-      <g fill-rule="evenodd" clip-rule="evenodd">
+      <g fillRule="evenodd" clipRule="evenodd">
         <path fill="none" d="M0 0h192.756v192.756H0V0z" />
         <path
           fill={fill}
