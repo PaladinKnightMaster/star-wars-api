@@ -84,7 +84,7 @@ function App() {
   // Reload page to initial state when click on Logo
   const handleRefresh = () => {
     setCharacters([]);
-    getCharacter(SWAPI_PEOPLE_URL + `?search=&page=${value}`);
+    getCharacter(SWAPI_PEOPLE_URL);
   };
 
   return (
