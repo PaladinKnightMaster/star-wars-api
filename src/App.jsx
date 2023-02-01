@@ -93,7 +93,7 @@ function App() {
         style={{
           backgroundImage: `url(${image})`,
         }}
-        className="h-screen w-full bg-cover bg-center sm:max-h-full"
+        className="h-screen w-full bg-cover bg-center sm:h-full"
       >
         <div className="flex items-center justify-center">
           <div onClick={handleRefresh} style={{ cursor: "pointer" }}>
