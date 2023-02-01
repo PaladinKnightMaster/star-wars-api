@@ -10,7 +10,7 @@ const Search = ({ onSearch}) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0"
+      className="sm: mx-10 flex flex-col space-y-3 sm:flex-row sm:justify-center sm:space-y-0"
     >
       <input
         type="text"
@@ -21,7 +21,7 @@ const Search = ({ onSearch}) => {
       />
       <button
         type="submit"
-        className="transform rounded-md bg-[#FB923C] px-5 py-1 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-[#FDBA74] focus:bg-[#EA580C] focus:outline-none sm:mx-2"
+        className="transform rounded-md bg-[#feda4a] px-5 py-1 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-[#e4c442] focus:bg-[#e4c442] focus:outline-none sm:mx-2"
       >
         Search
       </button>

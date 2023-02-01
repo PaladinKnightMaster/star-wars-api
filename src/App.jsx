@@ -78,6 +78,11 @@ function App() {
      setCharacters([]);
      getCharacter(SWAPI_PEOPLE_URL + `?search=${value}`);
   }
+// Reload page to initial state when click on Logo
+  const handleRefresh = () => {
+    setCharacters([]);
+    getCharacter(SWAPI_PEOPLE_URL + `?search=&page=${value}`);
+  }
 
   return (
     <>
@@ -85,15 +90,18 @@ function App() {
         style={{
           backgroundImage: `url(${image})`,
         }}
-        className="h-full w-full bg-cover bg-center"
+        className="h-screen w-full bg-cover bg-center"
       >
         <div
           className="flex items-center justify-center"
         >
+        <div onClick={handleRefresh} style={{cursor: 'pointer'}}>
         <StarWarsLogo
             height={175}
             fill={"#feda4a"}
+            onrefresh={handleRefresh}
           />
+          </div>
         </div>
         <div className="container mx-auto">
           <Search onSearch={handleSearch} />

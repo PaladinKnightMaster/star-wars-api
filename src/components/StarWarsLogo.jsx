@@ -1,6 +1,4 @@
-
-
-export const StarWarsLogo = ({height, fill}) => {
+export const StarWarsLogo = ({ height, fill }) => {
   return (
     <svg
       name="logo"
@@ -8,7 +6,7 @@ export const StarWarsLogo = ({height, fill}) => {
       width={height}
       height={height}
       viewBox="0 0 192.756 192.756"
-    > 
+    >
       <g fill-rule="evenodd" clip-rule="evenodd">
         <path fill="none" d="M0 0h192.756v192.756H0V0z" />
         <path
@@ -18,4 +16,4 @@ export const StarWarsLogo = ({height, fill}) => {
       </g>
     </svg>
   );
-}
+};
