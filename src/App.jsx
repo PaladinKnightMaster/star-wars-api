@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Search from "./components/Search";
 import TableList from "./components/TableList";
 import Pagination from "./components/Pagination";
+import { Spinner } from "./components/Spinner";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 
@@ -17,6 +18,7 @@ function App() {
   const [previousPage, setPreviousPage] = useState();
   const [search, setSearch] = useState(false);
   const [searchingFor, setSearchingFor] = useState('');
+  const [loading, setLoading] = useState(false);
   
 
   const initialLoading = useRef(0);
@@ -30,6 +32,7 @@ function App() {
 
   // API call
   const getCharacter = async (url) => {
+    setLoading(true);
     const response = await axios.get(url);
     const data = response.data;
     const people = response.data.results;
@@ -59,10 +62,11 @@ function App() {
     setNumberPages(Array(Math.ceil(data.count / 10)).fill("e"));
     setNextPage(data.next);
     setPreviousPage(data.previous);
+    setLoading(false);
   };
 
   // Pagination
-  
+
   const handleNextPage = () => {
     if (nextPage === null) return;
      setCharacters([]);
@@ -119,7 +123,12 @@ function App() {
         </div>
         <div className="container mx-auto">
           <Search onSearch={handleSearch} />
-          <TableList characters={characters} />
+          {loading ? (
+            < Spinner/>
+          ) : (
+            <TableList characters={characters} />
+          )}
+
           <Pagination
             countCharacters={characters.length}
             count={count}
