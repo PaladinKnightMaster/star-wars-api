@@ -1,11 +1,9 @@
-const Search = ({ onSearch}) => {
-
-     const handleSubmit = (e) => {
-      e.preventDefault();
-      onSearch(e.target.search.value)
-      e.target.reset(); 
-    }
-
+const Search = ({ onSearch }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(e.target.search.value);
+    e.target.reset();
+  };
 
   return (
     <form

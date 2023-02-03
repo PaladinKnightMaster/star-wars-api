@@ -1,7 +1,14 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { PaginationNumber } from "./PaginationNumber";
 
-export default function Pagination({ pages, next, previous, onPage }) {
+export default function Pagination({
+  pages,
+  next,
+  previous,
+  onPage,
+  searchPage,
+  onPagination,
+}) {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-transparent px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -36,7 +43,13 @@ export default function Pagination({ pages, next, previous, onPage }) {
             </a>
             {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
             {pages.map((element, i) => (
-              <PaginationNumber key={i} indicator={i} onPage={onPage} />
+              <PaginationNumber
+                key={i}
+                indicator={i + 1}
+                onPage={onPage}
+                searchPage={searchPage}
+                onPagination={onPagination}
+              />
             ))}
             <a
               href="#"

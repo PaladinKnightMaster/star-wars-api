@@ -1,5 +1,5 @@
 import TableRow from "./TableRow";
-import { useEffect } from "react";
+
 
 
 const TableList = ({ characters }) => {

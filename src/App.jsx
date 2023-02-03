@@ -15,6 +15,9 @@ function App() {
   const [numberPages, setNumberPages] = useState([]);
   const [nextPage, setNextPage] = useState();
   const [previousPage, setPreviousPage] = useState();
+  const [search, setSearch] = useState(false);
+  const [searchingFor, setSearchingFor] = useState('');
+  
 
   const initialLoading = useRef(0);
 
@@ -59,10 +62,11 @@ function App() {
   };
 
   // Pagination
+  
   const handleNextPage = () => {
     if (nextPage === null) return;
-    setCharacters([]);
-    getCharacter(nextPage);
+     setCharacters([]);
+     getCharacter(nextPage);
   };
 
   const handlePreviousPage = () => {
@@ -71,14 +75,23 @@ function App() {
     getCharacter(previousPage);
   };
 
+  const handlePagination = (value) => {
+    setCharacters([]);
+    getCharacter(SWAPI_PEOPLE_URL + '?search='+searchingFor+`&page=${value}`);
+
+  }
+
   const handlePageNumber = (value) => {
     setCharacters([]);
     getCharacter(SWAPI_PEOPLE_URL + `?search=&page=${value}`);
   };
+
   // Search
   const handleSearch = (value) => {
     if (value === "") return;
     setCharacters([]);
+    setSearch(true);
+    setSearchingFor(value);
     getCharacter(SWAPI_PEOPLE_URL + `?search=${value}`);
   };
   // Reload page to initial state when click on Logo
@@ -111,9 +124,11 @@ function App() {
             countCharacters={characters.length}
             count={count}
             pages={numberPages}
+            searchPage={search}
             next={handleNextPage}
             previous={handlePreviousPage}
             onPage={handlePageNumber}
+            onPagination={handlePagination}
           />
         </div>
       </section>
